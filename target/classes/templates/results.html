@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>View All Cars</title>
+</head>
+<body>
+<form>
+<table>
+	<tr th:each="currentCar : ${cars}">
+		<td th:text="${currentCar.id}" />		
+		<td th:text="${currentCar.year}" />
+		<td th:text="${currentCar.make}" />
+		<td th:text="${currentCar.model}" />
+	<td><a th:href="@{/edit/{id}(id=${currentCar.id})}">Edit</a></td>
+	<td><a th:href="@{/delete/{id}(id=${currentCar.id})}">Delete</a></td>
+</tr>
+</table>
+</form>
+<a href="../inputCar">Add a new Car</a>
+</body>
+</html>
